@@ -3,31 +3,33 @@
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <meta charset=utf-8 />
-<title>JS Bin</title>
+<title>Up/Down Scroll Detect</title>
+  
   <style>
-    body { height: 3500px; }
-  </sctyle>
+    html, body { height: 3500px; }
+  </style>
+  
   <script type='text/javascript'>
-    $(function(){
-      //Keep track of last scroll
-      var lastScroll = 0;
+    $(document).ready(function(){
+      //reset scroll
+      var scroll_before = 0;
       $(window).scroll(function(event){
-          //Sets the current scroll position
-          var st = $(this).scrollTop();
+          //current scroll position
+          var current_scroll = $(this).scrollTop();
           //Determines up-or-down scrolling
-          if (st > lastScroll){
-             alert("DOWN");
+          if ( current_scroll > lscroll_before ){
+             console.log('down');
           } 
           else {
-            alert("UP");
+            console.log('up');
           }
           //Updates scroll position
-          lastScroll = st;
+          scroll_before = current_scroll;
       });
     });
   </script>
 </head>
 <body>
-  <h1>Scroll Here</h1>
+  <h1>Scroll the page</h1>
 </body>
 </html>
